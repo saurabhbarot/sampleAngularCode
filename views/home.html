@@ -1,0 +1,66 @@
+<h3> Student Details</h3><hr>  
+<div class="col-sm-12">
+
+    <div class="row">
+        <div class="form-group col-sm-6">
+          <label class="col-sm-4 control-label">First Name</label>
+          <div class="col-sm-8">
+            <input type="text" data-ng-model="vm.student.FirstName" class="form-control" />
+          </div>
+        </div>
+
+        <div class="form-group col-sm-6">
+          <label class="col-sm-4 control-label">Last Name</label>
+          <div class="col-sm-8">
+            <input type="text" data-ng-model="vm.student.LastName" class="form-control" /></td>  
+          </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-sm-6">
+          <label class="col-sm-4 control-label">Email</label>
+          <div class="col-sm-8">
+            <input type="text" data-ng-model="vm.student.Email" class="form-control" />
+          </div>
+        </div>
+
+        <div class="form-group col-sm-6">
+          <label class="col-sm-4 control-label">Address</label>
+          <div class="col-sm-8">
+            <input type="text" data-ng-model="vm.student.Address" class="form-control" /></td>  
+          </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <input type="button" ng-hide="vm.isEdit" value="Save Data" data-ng-click="vm.addData()" class="btn btn-danger std-add-data"/>
+            <input type="button" ng-show="vm.isEdit" value="Update Data" data-ng-click="vm.updateData()" class="btn btn-danger std-update-data"/>
+        </div>
+    </div>
+  
+</div> 
+
+<div class="col-sm-12" ng-show="vm.stdList.length > 0">
+    <table border="1" class="table">  
+        <thead>  
+            <th>Id</th>  
+            <th>First Name</th>  
+            <th>Last Name</th>
+            <th>Address</th>  
+            <th>Email</th> 
+            <th>Action</th>  
+        </thead>  
+        <tr data-ng-repeat="student in vm.stdList track by $index">  
+            <td>{{ student.Id }}</td>  
+            <td>{{ student.FirstName }}</td>  
+            <td>{{ student.LastName }}</td>  
+            <td>{{ student.Address }}</td>  
+            <td>{{ student.Email }}</td>  
+            <td>
+                <input type="button" class="btn btn-primary" value="Edit" data-ng-click="vm.edit(student)" />
+                <input type="button" class="btn btn-danger" value="Delete" data-ng-click="vm.deleteData(student)" /></td>  
+        </tr>  
+    </table>  
+</div>
